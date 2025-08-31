@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS company (
     website_url VARCHAR(255) DEFAULT NULL,
     established_on DATE DEFAULT NULL,
     logo_url VARCHAR(255) DEFAULT NULL,
+    rc_number varchar(50) DEFAULT NULL,
     database_name VARCHAR(255) DEFAULT NULL,
     id_generation BOOLEAN DEFAULT TRUE,
     PRIMARY KEY (id),
