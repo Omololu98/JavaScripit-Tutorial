@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Functions</title>
+</head>
+<body>
+
+    <button class="js-button">Click</button>
+    
+    <script>
+
+        //add event listner
+        const buttonElement = document.querySelector('.js-button');
+
+        //function to run in event
+        const clickEvent = ()=> console.log('click');
+        buttonElement.addEventListener('click',clickEvent);
+
+        //remove event listener 
+        //buttonElement.removeEventListener('click',clickEvent);
+
+
+        function greetings(){
+            console.log("Hello World!!!");
+        }
+
+        greetings();
+
+        const dog = {
+            name: '',
+            bark: function (){
+                console.log("BARK!!!!!");
+            }
+        }
+
+ 
+        //this is calling a function of an object syntax
+        dog.bark(); //result ==> BARK!!!!!
+
+        setTimeout(function () {
+            console.log('timeout')
+        },3000);
+
+        //advanced for each 
+
+        const todoList = [
+            'make dinner',
+            'have my bath',
+            'say a prayer'
+        ];
+
+        todoList.forEach(function(todo){
+            console.log(todo);
+        });
+
+        const arrowFunction = ()=> {
+            console.log('Hello World');
+        }
+
+        //declaring the arrow function
+        arrowFunction();
+
+        //arrowFucntion with parameters (Note that arrow functions can also return values)
+        const addTwoValues = (x,y)=>{
+            console.log(x+y);
+        }
+
+        addTwoValues(5,3);
+
+        //arrow functions are very useful in ForEach Methods to simplify code snippets
+        todoList.forEach((todo)=>{
+            console.log(`Todo: ${todo}`);
+        });
+
+        //use filter to remove a particualr value from the list (remove negative numbers)
+        const numbers = [1,-3,4,-9,6];
+        const postiveNumbers =numbers.filter((value,index)=>{
+            
+            //return false so it is not added to the new list and true if it is to add it
+            if(value < 0){
+                return false;
+            }else{
+                return true; 
+            }
+            
+        });
+        console.log(postiveNumbers);
+
+
+         
+
+
+    </script>
+</body>
+</html>

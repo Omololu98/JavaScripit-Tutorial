@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+<body>
+    
+    <script>
+
+        function addTwoNumber(x,y){
+            console.log(x+y);
+        }
+        addTwoNumber(4,6);
+
+        function calculateTax(itemValue){
+            console.log(typeof itemValue);
+            if(typeof itemValue !== "number"){
+                console.log("You did not provide a number");
+            }else{
+            console.log(`Tax on item is $${itemValue*.12}`);
+            }
+        }
+
+        calculateTax('hbjb');
+
+    </script>
+</body>
+</html>

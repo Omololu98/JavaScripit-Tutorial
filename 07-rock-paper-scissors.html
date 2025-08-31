@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+
+    <p>Rock Paper Scissors</p>
+    <button onclick="
+
+        pickComputerMove();
+        decideWinner('rock');
+        alert(`You picked Rock. Computer picked ${computerMove}. ${result}`);
+
+    ">Rock</button>
+    <button onclick="
+
+        pickComputerMove();
+        decideWinner('scissors');
+        alert(`You picked Scissors. Computer picked ${computerMove}. ${result}`);
+        
+    ">Scissors</button>
+    <button onclick="
+    
+        pickComputerMove();
+        decideWinner('paper');
+        alert(`You picked Paper. Computer picked ${computerMove}. ${result}`);
+
+    ">Paper</button>
+
+
+    <script>
+
+        let randomNumber;
+        let result = '';
+        let computerMove = '';
+
+        function pickComputerMove() {
+            randomNumber = Math.random();
+            result = '';
+            computerMove = '';
+
+            if (randomNumber < 1 / 3) {
+                computerMove = 'rock';
+            } else if (randomNumber > 1 / 3 && randomNumber < 2 / 3) {
+                computerMove = 'paper';
+            } else {
+                computerMove = 'scissors';
+            }
+        }
+
+        function decideWinner(myMove) {
+
+            if (myMove === 'paper') {
+                if (computerMove === 'rock') {
+                    result = 'You win.';
+                } else if (computerMove === 'paper') {
+                    result = 'You tie.';
+                } else {
+                    result = 'You lose.';
+                }
+
+            }else if (myMove === 'rock') {
+                if (computerMove === 'rock') {
+                    result = 'You tie.';
+                } else if (computerMove === 'paper') {
+                    result = 'You lose.';
+                } else {
+                    result = 'You win.';
+                }
+                
+            } else if (myMove === 'scissors') {
+                if (computerMove === 'rock') {
+                    result = 'You lose.';
+                } else if (computerMove === 'paper') {
+                    result = 'You win.';
+                } else {
+                    result = 'You tie.';
+                }
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

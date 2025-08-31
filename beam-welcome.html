@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Welcome to Beam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Poppins', Arial, sans-serif;
+        background-color: #f4f6f8;
+        margin: 0;
+        padding: 0;
+      }
+      .email-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0px 2px 6px rgba(0,0,0,0.08);
+      }
+      .header {
+        background-color: #ffffff;
+        color: #333333;
+        padding: 28px;
+        text-align: left;
+      }
+      .header img {
+        max-width: 120px;
+        margin-bottom: 12px;
+      }
+      .header h1 {
+        margin: 0;
+        font-size: 22px;
+      }
+      .content {
+        padding: 28px;
+        color: #333333;
+      }
+      .content h2 {
+        margin-top: 0;
+        font-size: 18px;
+        color: #0b6cf6;
+      }
+      .otp-box {
+        margin: 15px 0;
+        padding: 10px;
+        text-align: left;
+        background-color: white;
+        border-radius: 6px;
+        font-size: 22px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: black;
+      }
+      .btn {
+        display: inline-block;
+        margin: 18px 0;
+        padding: 12px 20px;
+        background-color: #0b6cf6;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 600;
+      }
+      .footer {
+        background-color: #f4f6f8;
+        padding: 6px;
+        text-align: center;
+        font-size: 11px;
+        color: #666666;
+      }
+      .footer a {
+        color: blue;
+        text-decoration: none;
+      }
+      ul {
+        padding-left: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="email-container">
+      <div class="header">
+        <img src="ee26ef7822b67218404149274abb10a9765300e0-removebg-preview.png" alt="Beam Logo" />
+        <h1>Welcome to Beam 🎉</h1>
+      </div>
+      <div class="content">
+        <p>Dear [companyName] Team,</p>
+
+        <p>We’re excited to welcome you to <strong>Beam</strong> – your all-in-one platform for managing <em>projects, inventory, documents, funds, tasks, and workflows</em> seamlessly.</p>
+
+        <p>To complete your registration, please verify your <strong>admin email</strong> using the One-Time Password (OTP) below:</p>
+
+        <div class="otp-box">[OTP]</div>
+
+        <p>This OTP is valid for the next <strong>5 minutes</strong>. Please do not share it with anyone for security reasons.</p>
+
+        <p>Once verified, you’ll be able to:</p>
+        <ul>
+          <li>Set up your company profile and onboard your team</li>
+          <li>Configure workflows and approval processes</li>
+          <li>Manage project tasks, job logs, and document storage</li>
+          <li>Track inventory and material usage in real time</li>
+          <li>Request and monitor funds & expenses with transparency</li>
+        </ul>
+
+        <p style="text-align:center;">
+          <a href="[verifyEmailUrl]" class="btn">Verify Email & Continue</a>
+        </p>
+
+        <p>If you did not sign up for Beam, you can safely ignore this email.</p>
+
+        <p>We’re thrilled to have you onboard and look forward to supporting your company’s growth with Beam.</p>
+
+        <p>Warm regards,<br><strong>The Beam Team</strong></p>
+      </div>
+      <div class="footer">
+        <p>A product of Proton Pulse.</p>
+        <p>Need help? Email us at <a href="mailto:info@protpulse.com">{{SUPPORT_EMAIL}}</a></p>
+        <p>© {{CURRENT_YEAR}} Beam. All rights reserved.</p>
+      </div>
+    </div>
+  </body>
+</html>
