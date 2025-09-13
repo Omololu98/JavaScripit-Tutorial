@@ -1,3 +1,4 @@
+
 -- ==========================================
 -- Employee Management
 -- ==========================================
@@ -700,7 +701,6 @@ CREATE TABLE IF NOT EXISTS project_status_chart (
     PRIMARY KEY (id)
 );
 
----
 
 ## Repository Management Tables
 
