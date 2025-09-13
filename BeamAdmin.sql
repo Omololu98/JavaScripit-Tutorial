@@ -1,12 +1,3 @@
--- ==========================================
--- Clean up (drop old tables if they exist)
--- ==========================================
-DROP TABLE IF EXISTS subscription_history;
-DROP TABLE IF EXISTS subscription_payment;
-DROP TABLE IF EXISTS payment_history;
-DROP TABLE IF EXISTS role_heirachy;
-DROP TABLE IF EXISTS _users;
-DROP TABLE IF EXISTS company;
 
 -- ==========================================
 -- Company
@@ -27,13 +18,15 @@ CREATE TABLE IF NOT EXISTS company (
     rc_number varchar(50) DEFAULT NULL,
     database_name VARCHAR(255) DEFAULT NULL,
     id_generation BOOLEAN DEFAULT TRUE,
+    is_active BOOLEAN DEFAULT FALSE,
+    onboarding_complete BOOLEAN DEFAULT FALSE,
+    subscription_status BOOLEAN DEFAULT FALSE,
     PRIMARY KEY (id),
     UNIQUE (name),
     UNIQUE (email),
     UNIQUE (tenant_id),
     INDEX name_idx (name)
 );
-
 
 -- ==========================================
 -- Users
@@ -102,70 +95,16 @@ CREATE TABLE IF NOT EXISTS company_subscription_info (
     end_date DATE,
     plan_type VARCHAR(50),
     status VARCHAR(50),
+    trial_used boolean DEFAULT false,
     PRIMARY KEY (id)
 );
 
-
--- ==========================================
--- Subscription Payment
--- ==========================================
-CREATE TABLE IF NOT EXISTS subscription_payment (
-    id VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT NULL,
-    modified_at TIMESTAMP DEFAULT NULL,
-    company_name VARCHAR(100),
-    company_email VARCHAR(100),
-    admin_name VARCHAR(100),
-    admin_email VARCHAR(100),
-    admin_phone_number VARCHAR(100),
-    is_active BOOLEAN,
-    PRIMARY KEY (id)
-);
-
--- ==========================================
--- Subscription History
--- ==========================================
-CREATE TABLE IF NOT EXISTS subscription_history (
-    id VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT NULL,
-    modified_at TIMESTAMP DEFAULT NULL,
-    start_time TIMESTAMP,
-    end_time TIMESTAMP,
-    amount DECIMAL(15,2),
-    subscription_type VARCHAR(100),
-    payment_reference VARCHAR(100),
-    subscription_status VARCHAR(100),
-    subscription_payment VARCHAR(100),
-    proposed_start_date DATE,
-    PRIMARY KEY (id),
-    FOREIGN KEY (subscription_payment) REFERENCES subscription_payment(id)
-);
-
--- ==========================================
--- Payment History
--- ==========================================
-CREATE TABLE IF NOT EXISTS payment_history (
-    id VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT NULL,
-    modified_at TIMESTAMP DEFAULT NULL,
-    auth_url VARCHAR(255),
-    reference VARCHAR(255),
-    transaction_status VARCHAR(255),
-    paid_at TIMESTAMP,
-    currency VARCHAR(50),
-    channel VARCHAR(50),
-    admin_email VARCHAR(255),
-    company_name VARCHAR(255),
-    amount VARCHAR(255),
-    PRIMARY KEY (id),
-    UNIQUE (reference)
-);
 
 -- ==========================================
 -- Compnay Subscription History
 -- ==========================================
 CREATE TABLE company_subscription_history (
-    id VARCHAR(255) NOT NULL,
+    id VARCHAR(255) NOT NULL PRIMARY KEY,
     created_at TIMESTAMP DEFAULT NULL,
     modified_at TIMESTAMP DEFAULT NULL,
     company_id VARCHAR(100) NOT NULL,
@@ -175,6 +114,8 @@ CREATE TABLE company_subscription_history (
     status VARCHAR(50),
     email VARCHAR(150),
     amount DECIMAL(19, 2) NOT NULL,
-    subscription_type VARCHAR(50) NOT NULL,
-    payment_gateway VARCHAR(50) NOT NULL
+    billing_cycle VARCHAR(50) NOT NULL,
+    payment_gateway VARCHAR(50) NOT NULL,
+    plan VARCHAR(50) NOT NULL,
+    reference_used BOOLEAN NOT NULL DEFAULT FALSE
 );
